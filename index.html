@@ -3,16 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Personal Hub | Profile, Projects, and Links</title>
-    <meta
-      name="description"
-      content="A lightweight personal hub for sharing profile details, featured projects, useful links, and contact information."
-    />
-    <meta property="og:title" content="Personal Hub | Profile, Projects, and Links" />
-    <meta
-      property="og:description"
-      content="Explore profile highlights, featured work, and curated links from this single-page personal hub."
-    />
+    <title>personalhub</title>
+    <meta name="description" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://example.com/personalhub" />
     <meta property="og:image" content="https://example.com/assets/share-image.jpg" />
@@ -237,6 +231,7 @@
 
         .nav-link,
         .button-link,
+        .button,
         .external-link {
           display: inline-flex;
           align-items: center;
@@ -260,8 +255,6 @@
         .hero {
           display: grid;
           gap: var(--space-xl);
-          grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-          align-items: center;
           padding-block: var(--space-2xl);
         }
 
@@ -291,22 +284,23 @@
         }
 
         .hero-actions,
-        .meta-list,
-        .link-list,
         .footer-links {
           display: flex;
           flex-wrap: wrap;
           gap: var(--space-sm);
         }
 
-        .button-link {
+        .button-link,
+        .button {
           background: var(--color-accent);
           color: #ffffff;
           border: 1px solid var(--color-accent);
         }
 
         .button-link:hover,
-        .button-link:focus-visible {
+        .button-link:focus-visible,
+        .button:hover,
+        .button:focus-visible {
           background: var(--color-accent-strong);
           color: #ffffff;
         }
@@ -320,24 +314,6 @@
         .button-link.secondary:hover,
         .button-link.secondary:focus-visible {
           background: var(--color-surface-muted);
-        }
-
-        .meta-list {
-          padding: 0;
-          list-style: none;
-        }
-
-        .meta-pill,
-        .badge {
-          border-radius: 999px;
-          padding: 0.45rem 0.8rem;
-          font-size: 0.92rem;
-          font-weight: 600;
-        }
-
-        .meta-pill {
-          background: #edf4ff;
-          color: #12326b;
         }
 
         .section-grid {
@@ -368,29 +344,38 @@
           margin-bottom: 0;
         }
 
+        .card__title-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: var(--space-sm);
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        .card__meta {
+          display: flex;
+          flex-wrap: wrap;
+          gap: var(--space-xs);
+          list-style: none;
+          padding-left: 0;
+          margin: 0;
+        }
+
         .badge {
           width: fit-content;
+          border-radius: 999px;
+          padding: 0.45rem 0.8rem;
+          font-size: 0.92rem;
+          font-weight: 600;
           background: #eef2f7;
           color: #364152;
           border: 1px solid #d5dde8;
-        }
-
-        .badge.project {
-          background: #eef6ff;
-          color: #174ea6;
-          border-color: #cadeff;
         }
 
         .badge.link {
           background: #f4f2ff;
           color: #5b3dc4;
           border-color: #ddd5ff;
-        }
-
-        .badge.misc {
-          background: #eff8f2;
-          color: #1f6b42;
-          border-color: #cfe8d8;
         }
 
         .external-link {
@@ -412,6 +397,7 @@
           color: var(--color-text-muted);
           font-size: 0.88rem;
           font-weight: 500;
+          overflow-wrap: anywhere;
         }
 
         .site-footer {
@@ -422,18 +408,6 @@
           border-top: 1px solid var(--color-border);
           margin-top: var(--space-2xl);
           padding-bottom: var(--space-2xl);
-        }
-
-        .visually-hidden {
-          position: absolute;
-          width: 1px;
-          height: 1px;
-          padding: 0;
-          margin: -1px;
-          overflow: hidden;
-          clip: rect(0, 0, 0, 0);
-          white-space: nowrap;
-          border: 0;
         }
       }
 
@@ -449,156 +423,49 @@
       <div class="container header-inner">
         <a class="brand" href="#top">
           <span class="brand-mark" aria-hidden="true">PH</span>
-          <span>Personal Hub</span>
+          <span data-site-name></span>
         </a>
-        <nav class="site-nav" aria-label="Primary">
-          <a class="nav-link" href="#links">Links</a>
-          <a class="nav-link" href="#projects">Projects</a>
-          <a class="nav-link" href="#misc">Misc</a>
-          <a class="nav-link" href="#footer">Footer</a>
-        </nav>
+        <nav class="site-nav" aria-label="Primary" data-site-nav></nav>
       </div>
     </header>
 
     <main id="top">
-      <section class="container hero" aria-labelledby="intro-title">
-        <div>
-          <p class="eyebrow">Profile snapshot</p>
-          <h1 id="intro-title">A concise home for profile copy, featured projects, and useful links.</h1>
-          <p>
-            This starter page gives you one clean place to share who you are, what you are working on,
-            and where people should go next. The layout stays readable across screen sizes and keeps
-            interactions obvious for keyboard, touch, and reduced-motion users.
-          </p>
-          <div class="hero-actions">
-            <a class="button-link" href="#projects">View featured work</a>
-            <a class="button-link secondary" href="#links">Browse links</a>
-          </div>
-        </div>
-
-        <aside class="hero-card" aria-label="Quick facts">
-          <h2>At a glance</h2>
-          <ul class="meta-list">
-            <li class="meta-pill">Profile copy lives in the hero section</li>
-            <li class="meta-pill">Links are grouped for easy updates</li>
-            <li class="meta-pill">Project cards share the same component styling</li>
-          </ul>
-        </aside>
+      <section class="container hero" aria-labelledby="hero-title">
+        <article class="hero-card">
+          <p class="eyebrow" data-hero-eyebrow></p>
+          <h1 id="hero-title" data-hero-title></h1>
+          <p data-hero-subtitle></p>
+          <p data-hero-description></p>
+          <div class="hero-actions" data-hero-actions></div>
+        </article>
       </section>
 
-      <section class="container section-grid" id="links" aria-labelledby="links-title">
+      <section class="container section-grid" id="social-links" aria-labelledby="social-title">
         <div>
-          <h2 id="links-title">Links</h2>
-          <p>
-            Use this section for destinations you want visitors to reach quickly. External links are
-            marked consistently so their behavior is clear before activation.
-          </p>
+          <h2 id="social-title" data-social-title></h2>
+          <p data-social-description></p>
         </div>
-        <div class="card-grid">
-          <article class="card">
-            <span class="badge link">Primary link</span>
-            <h3>Professional profile</h3>
-            <p>Point this card to the network where you most often share your work history and updates.</p>
-            <a
-              class="external-link"
-              href="https://www.linkedin.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Visit LinkedIn
-              <span aria-hidden="true">↗</span>
-              <span class="external-label">Opens in a new tab</span>
-            </a>
-          </article>
-
-          <article class="card">
-            <span class="badge link">Code</span>
-            <h3>Source repositories</h3>
-            <p>Use this slot for the code host where collaborators can browse, fork, or star your projects.</p>
-            <a class="external-link" href="https://github.com/" target="_blank" rel="noreferrer">
-              Visit GitHub
-              <span aria-hidden="true">↗</span>
-              <span class="external-label">Opens in a new tab</span>
-            </a>
-          </article>
-        </div>
+        <div class="card-grid" data-links-grid></div>
       </section>
 
-      <section class="container section-grid" id="projects" aria-labelledby="projects-title">
+      <section class="container section-grid" id="featured-projects" aria-labelledby="projects-title">
         <div>
-          <h2 id="projects-title">Projects</h2>
-          <p>
-            Keep featured work brief: what the project is, why it matters, and where people can explore it.
-          </p>
+          <h2 id="projects-title" data-projects-title></h2>
+          <p data-projects-description></p>
         </div>
-        <div class="card-grid">
-          <article class="card">
-            <span class="badge project">Featured project</span>
-            <h3>Accessible portfolio starter</h3>
-            <p>
-              A simple landing page template with responsive spacing, visible focus states, and reusable cards.
-            </p>
-            <a class="external-link" href="https://example.com/demo" target="_blank" rel="noreferrer">
-              Open live demo
-              <span aria-hidden="true">↗</span>
-              <span class="external-label">Opens in a new tab</span>
-            </a>
-          </article>
-
-          <article class="card">
-            <span class="badge project">Case study</span>
-            <h3>Design system notes</h3>
-            <p>
-              Document the spacing tokens, badge styles, and interaction rules that keep your personal site cohesive.
-            </p>
-            <a class="external-link" href="https://example.com/case-study" target="_blank" rel="noreferrer">
-              Read case study
-              <span aria-hidden="true">↗</span>
-              <span class="external-label">Opens in a new tab</span>
-            </a>
-          </article>
-        </div>
+        <div class="card-grid" data-projects-grid></div>
       </section>
 
-      <section class="container section-grid" id="misc" aria-labelledby="misc-title">
+      <section class="container section-grid" id="about" aria-labelledby="about-title">
         <div>
-          <h2 id="misc-title">Misc</h2>
-          <p>
-            Reserve this space for lightweight notes such as availability, interests, newsletter links, or side quests.
-          </p>
+          <h2 id="about-title" data-about-title></h2>
+          <p data-about-description></p>
         </div>
-        <div class="card-grid">
-          <article class="card">
-            <span class="badge misc">Availability</span>
-            <h3>Consulting and collaborations</h3>
-            <p>Swap in current booking status, preferred engagement types, and your usual response window.</p>
-          </article>
-
-          <article class="card">
-            <span class="badge misc">Now</span>
-            <h3>Current focus</h3>
-            <p>Highlight the one thing you are learning, shipping, or improving right now.</p>
-          </article>
-        </div>
+        <div class="hero-card" data-about-copy></div>
       </section>
     </main>
 
-    <footer class="container site-footer" id="footer">
-      <div>
-        <h2>Stay in touch</h2>
-        <p class="muted">Replace these placeholders with your preferred contact and publishing destinations.</p>
-      </div>
-      <div class="footer-links" aria-label="Footer links">
-        <a class="external-link" href="mailto:hello@example.com">
-          Email hello@example.com
-          <span class="external-label">Opens your mail app</span>
-        </a>
-        <a class="external-link" href="https://example.com/rss.xml" target="_blank" rel="noreferrer">
-          RSS feed
-          <span aria-hidden="true">↗</span>
-          <span class="external-label">Opens in a new tab</span>
-        </a>
-      </div>
-    </footer>
+    <footer class="container site-footer" id="footer" data-footer-meta></footer>
+    <script type="module" src="assets/js/main.js"></script>
   </body>
 </html>
