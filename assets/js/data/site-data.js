@@ -1,15 +1,15 @@
 export const siteData = {
-  siteName: '迷宮行者的數位基地',
+  siteName: 'personalhub',
   seo: {
-    title: '迷宮行者的數位基地 | 個人資料, 專案, 以及連結',
+    title: 'personalhub | Profile, Projects, and Links',
     description:
-      '在這裡你可以大概知道我是誰，也會在這個入口網站放一些Vibe Coding生成的玩具跟其他雜物。',
+      'A modular personal hub that loads hero copy, links, projects, and footer metadata from a single shared data layer.',
   },
   navigation: [
-    { label: '社群網路', href: '#social-links' },
-    { label: '專案', href: '#featured-projects' },
-    { label: '關於我', href: '#about' },
-    { label: '頁尾', href: '#footer' },
+    { label: 'Social', href: '#social-links' },
+    { label: 'Projects', href: '#featured-projects' },
+    { label: 'About', href: '#about' },
+    { label: 'Footer', href: '#footer' },
   ],
   sections: {
     socialLinks: {
