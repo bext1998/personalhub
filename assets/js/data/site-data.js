@@ -1,85 +1,96 @@
 export const siteData = {
   siteName: 'personalhub',
-  tagline: 'Builder, generalist, and internet home base',
-  intro:
-    'A compact static site for highlighting current work, useful links, experiments, and the context behind what I am building.',
-  heroMeta: [
-    { label: 'Focus', value: 'Designing practical products and clear developer experiences' },
-    { label: 'Current mode', value: 'Shipping small improvements consistently' },
+  seo: {
+    title: 'personalhub | Profile, Projects, and Links',
+    description:
+      'A modular personal hub that loads hero copy, links, projects, and footer metadata from a single shared data layer.',
+  },
+  navigation: [
+    { label: 'Social', href: '#social-links' },
+    { label: 'Projects', href: '#featured-projects' },
+    { label: 'About', href: '#about' },
+    { label: 'Footer', href: '#footer' },
   ],
-  primaryLinks: [
+  sections: {
+    socialLinks: {
+      title: 'Social links',
+      description: 'Quick paths to the places where I publish updates, ship code, and stay reachable.',
+    },
+    featuredProjects: {
+      title: 'Featured projects',
+      description: 'A compact list of current work, experiments, and portfolio building blocks.',
+    },
+    about: {
+      title: 'About',
+      description: 'Short notes about how this site is organized and how the content layer can keep growing.',
+    },
+  },
+  labels: {
+    openLink: 'Open link',
+    viewProject: 'View project',
+    github: 'GitHub',
+    updated: 'Updated',
+  },
+  hero: {
+    eyebrow: 'Profile snapshot',
+    title: 'A concise home for profile copy, featured work, and reusable content data.',
+    subtitle: 'One shared data module now drives the homepage copy instead of scattering text across templates.',
+    description:
+      'This setup keeps HTML focused on structure, lets render modules stay presentational, and makes future expansions like multi-page content, dark mode, project filters, or a changelog easier to manage from one place.',
+    cta: {
+      primary: { label: 'View featured work', href: '#featured-projects' },
+      secondary: { label: 'Browse social links', href: '#social-links' },
+    },
+  },
+  socialLinks: [
     {
-      title: 'GitHub',
+      platform: 'GitHub',
       url: 'https://github.com/',
-      description: 'Code, experiments, and public repos.',
-      badge: 'Code',
+      description: 'Code, experiments, and public repositories.',
     },
     {
-      title: 'LinkedIn',
+      platform: 'LinkedIn',
       url: 'https://www.linkedin.com/',
-      description: 'Professional background, roles, and collaborations.',
-      badge: 'Network',
+      description: 'Professional background, collaborations, and career updates.',
     },
     {
-      title: 'Email',
+      platform: 'Email',
       url: 'mailto:hello@example.com',
-      description: 'Best for thoughtful notes, opportunities, and intros.',
-      badge: 'Contact',
-    },
-    {
-      title: 'Now',
-      url: '#about',
-      description: 'A quick snapshot of priorities, interests, and momentum.',
-      badge: 'Status',
+      description: 'Best for thoughtful notes, project inquiries, and introductions.',
     },
   ],
   featuredProjects: [
     {
-      title: 'Personal Hub',
-      description: 'A modular static-site shell with separated content, rendering, and styling layers.',
-      href: '#top',
-      tags: ['Static site', 'ES modules', 'Design system'],
-      status: 'Active',
+      name: 'Personal Hub',
+      summary: 'A modular static site shell with separated data, render, and interaction layers.',
+      typeTag: 'Static site',
+      statusTag: 'Active',
+      link: '#top',
     },
     {
-      title: 'Project Atlas',
-      description: 'An internal catalog for documenting experiments, decisions, and reusable patterns across projects.',
-      href: '#projects',
-      tags: ['Knowledge base', 'UX systems', 'Operations'],
-      status: 'Concept',
+      name: 'Project Atlas',
+      summary: 'A living catalog for documenting experiments, reusable decisions, and internal patterns.',
+      typeTag: 'Knowledge base',
+      statusTag: 'Concept',
+      link: '#featured-projects',
     },
     {
-      title: 'Tiny Launches',
-      description: 'A habit of packaging smaller ideas into shippable demos instead of waiting for a perfect launch.',
-      href: '#misc',
-      tags: ['Prototyping', 'Habits', 'Iteration'],
-      status: 'Ongoing',
-    },
-  ],
-  miscItems: [
-    {
-      title: 'Operating principle',
-      description: 'Prefer clarity over cleverness, then refine the details after the structure feels solid.',
-    },
-    {
-      title: 'What I enjoy',
-      description: 'Product strategy, front-end systems, content structure, and making technical things feel approachable.',
-    },
-    {
-      title: 'What this site is for',
-      description: 'A low-maintenance landing page that can grow into a richer personal site over time.',
+      name: 'Tiny Launches',
+      summary: 'A practice of packaging small ideas into shippable demos instead of waiting for a perfect launch.',
+      typeTag: 'Iteration',
+      statusTag: 'Ongoing',
+      link: '#about',
     },
   ],
   about: [
-    'I like building things that balance utility, personality, and long-term maintainability. This version of personalhub treats content as data, keeps HTML intentionally lean, and leaves room for future pages and themes.',
-    'The underlying structure is meant to stay flexible: add another section, change the visual language, or swap in new project cards without rewriting the page shell. That makes it a good foundation for a portfolio, notes site, or evolving digital home.',
+    'This homepage now treats copy as structured data first, so the layout can stay lean and reusable.',
+    'If new pages are added later, the same data layer can provide shared site metadata and section content.',
+    'Dark mode, project categories, and changelog entries should extend this module before adding new hardcoded copy elsewhere.',
   ],
   footer: {
-    note: 'Built as a static site with modular CSS and JavaScript for easy growth.',
-    metadata: [
-      { label: 'Location', value: 'Repository root' },
-      { label: 'Stack', value: 'HTML, CSS, ES modules' },
-      { label: 'Updated', value: '2026' },
-    ],
+    siteName: 'personalhub',
+    githubUrl: 'https://github.com/',
+    copyright: '© 2026 personalhub. All rights reserved.',
+    updatedDate: '2026-03-22',
   },
 };

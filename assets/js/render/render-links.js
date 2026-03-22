@@ -1,17 +1,22 @@
-const linkCardTemplate = ({ title, url, description, badge }) => `
-  <article class="card links-card fade-in">
-    <div class="card__title-row">
-      <h3>${title}</h3>
-      <span class="badge">${badge}</span>
-    </div>
-    <p class="card__description">${description}</p>
-    <div class="card__footer">
-      <a class="button" href="${url}">Open link</a>
-    </div>
-  </article>
-`;
+const linkCardTemplate = ({ platform, url, description }, labels) => {
+  const isExternal = /^https?:/i.test(url);
+  const targetAttrs = isExternal ? ' target="_blank" rel="noreferrer"' : '';
 
-export function renderLinks(links, mountPoint) {
+  return `
+    <article class="card links-card fade-in">
+      <div class="card__title-row">
+        <h3>${platform}</h3>
+        <span class="badge link">${platform}</span>
+      </div>
+      <p class="card__description">${description}</p>
+      <div class="card__footer">
+        <a class="button" href="${url}"${targetAttrs}>${labels.openLink}</a>
+      </div>
+    </article>
+  `;
+};
+
+export function renderLinks(links, mountPoint, labels) {
   if (!mountPoint) return;
-  mountPoint.innerHTML = links.map(linkCardTemplate).join('');
+  mountPoint.innerHTML = links.map((link) => linkCardTemplate(link, labels)).join('');
 }

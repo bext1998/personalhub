@@ -1,29 +1,20 @@
-const heroMetaTemplate = ({ label, value }) => `
-  <article class="hero__meta-card fade-in">
-    <span class="hero__meta-label">${label}</span>
-    <p class="hero__meta-value">${value}</p>
-  </article>
-`;
+const navTemplate = ({ label, href }) => `<a class="nav-link" href="${href}">${label}</a>`;
 
-const miscCardTemplate = ({ title, description }) => `
-  <article class="card misc-card fade-in">
-    <h3>${title}</h3>
-    <p class="card__description">${description}</p>
-  </article>
+const heroActionsTemplate = (cta) => `
+  <a class="button-link" href="${cta.primary.href}">${cta.primary.label}</a>
+  <a class="button-link secondary" href="${cta.secondary.href}">${cta.secondary.label}</a>
 `;
 
 const aboutTemplate = (paragraph) => `<p>${paragraph}</p>`;
 
-const footerMetaTemplate = ({ label, value }) => `<li><strong>${label}:</strong> ${value}</li>`;
-
-export function renderHeroMeta(items, mountPoint) {
+export function renderNavigation(items, mountPoint) {
   if (!mountPoint) return;
-  mountPoint.innerHTML = items.map(heroMetaTemplate).join('');
+  mountPoint.innerHTML = items.map(navTemplate).join('');
 }
 
-export function renderMisc(items, mountPoint) {
+export function renderHeroActions(cta, mountPoint) {
   if (!mountPoint) return;
-  mountPoint.innerHTML = items.map(miscCardTemplate).join('');
+  mountPoint.innerHTML = heroActionsTemplate(cta);
 }
 
 export function renderAbout(paragraphs, mountPoint) {
@@ -31,15 +22,23 @@ export function renderAbout(paragraphs, mountPoint) {
   mountPoint.innerHTML = paragraphs.map(aboutTemplate).join('');
 }
 
-export function renderFooter(footer, mountPoint, siteName) {
+export function renderFooter(footer, mountPoint, labels) {
   if (!mountPoint) return;
   mountPoint.innerHTML = `
-    <div class="site-footer__copy">
-      <strong>${siteName}</strong>
-      <p>${footer.note}</p>
+    <div>
+      <h2>${footer.siteName}</h2>
+      <p class="muted">${footer.copyright}</p>
     </div>
-    <ul class="footer-list">
-      ${footer.metadata.map(footerMetaTemplate).join('')}
-    </ul>
+    <div class="footer-links" aria-label="Footer links">
+      <a class="external-link" href="${footer.githubUrl}" target="_blank" rel="noreferrer">
+        ${labels.github}
+        <span aria-hidden="true">↗</span>
+        <span class="external-label">${footer.githubUrl}</span>
+      </a>
+      <div class="external-link">
+        ${labels.updated}
+        <span class="external-label">${footer.updatedDate}</span>
+      </div>
+    </div>
   `;
 }

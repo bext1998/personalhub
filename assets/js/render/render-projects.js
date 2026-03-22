@@ -1,21 +1,25 @@
-const tagsTemplate = (tags) =>
-  tags.map((tag) => `<li class="badge">${tag}</li>`).join('');
+const tagsTemplate = (typeTag) => `<li class="badge">${typeTag}</li>`;
 
-const projectCardTemplate = ({ title, description, href, tags, status }) => `
-  <article class="card projects-card fade-in">
-    <div class="card__title-row">
-      <h3>${title}</h3>
-      <span class="badge">${status}</span>
-    </div>
-    <p class="card__description">${description}</p>
-    <ul class="card__meta">${tagsTemplate(tags)}</ul>
-    <div class="card__footer">
-      <a class="button" href="${href}">View project</a>
-    </div>
-  </article>
-`;
+const projectCardTemplate = ({ name, summary, link, typeTag, statusTag }, labels) => {
+  const isExternal = /^https?:/i.test(link);
+  const targetAttrs = isExternal ? ' target="_blank" rel="noreferrer"' : '';
 
-export function renderProjects(projects, mountPoint) {
+  return `
+    <article class="card projects-card fade-in">
+      <div class="card__title-row">
+        <h3>${name}</h3>
+        <span class="badge">${statusTag}</span>
+      </div>
+      <p class="card__description">${summary}</p>
+      <ul class="card__meta">${tagsTemplate(typeTag)}</ul>
+      <div class="card__footer">
+        <a class="button" href="${link}"${targetAttrs}>${labels.viewProject}</a>
+      </div>
+    </article>
+  `;
+};
+
+export function renderProjects(projects, mountPoint, labels) {
   if (!mountPoint) return;
-  mountPoint.innerHTML = projects.map(projectCardTemplate).join('');
+  mountPoint.innerHTML = projects.map((project) => projectCardTemplate(project, labels)).join('');
 }
