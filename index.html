@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>personalhub</title>
-    <meta name="description" content="" />
-    <meta property="og:title" content="" />
-    <meta property="og:description" content="" />
+    <title>personalhub | 個人簡介、作品與連結</title>
+    <meta
+      name="description"
+      content="以單一資料層管理首頁介紹、社群連結、精選作品與頁尾資訊的個人展示頁。"
+    />
+    <link rel="canonical" href="https://bext1998.github.io/personalhub/" />
+    <meta property="og:title" content="personalhub | 個人簡介、作品與連結" />
+    <meta
+      property="og:description"
+      content="以單一資料層管理首頁介紹、社群連結、精選作品與頁尾資訊的個人展示頁。"
+    />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://example.com/personalhub" />
-    <meta property="og:image" content="https://example.com/assets/share-image.jpg" />
-    <meta property="og:image:alt" content="Placeholder share image for the Personal Hub page." />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:url" content="https://bext1998.github.io/personalhub/" />
+    <meta property="og:image" content="https://bext1998.github.io/personalhub/favicon.svg" />
+    <meta property="og:image:alt" content="personalhub 個人首頁的分享預覽圖示。" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <style>
       @layer base, components, utilities;
@@ -18,16 +26,16 @@
       @layer base {
         :root {
           color-scheme: light;
-          --color-bg: #f4f7fb;
+          --color-bg: #f6f8fb;
           --color-surface: #ffffff;
-          --color-surface-muted: #eef3f8;
+          --color-surface-muted: #f1f4f8;
           --color-text: #142033;
-          --color-text-muted: #4a5a70;
-          --color-border: #d3dce8;
-          --color-accent: #175cd3;
-          --color-accent-strong: #0f4bb5;
+          --color-text-muted: #4d5f76;
+          --color-border: #d7e0ea;
+          --color-accent: #1b5fcf;
+          --color-accent-strong: #154dad;
           --color-focus: #ff9f1c;
-          --shadow-soft: 0 18px 50px rgba(20, 32, 51, 0.08);
+          --shadow-soft: 0 10px 28px rgba(20, 32, 51, 0.06);
           --radius-sm: 0.625rem;
           --radius-md: 1rem;
           --radius-lg: 1.5rem;
@@ -63,7 +71,7 @@
         body {
           margin: 0;
           font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-          background: linear-gradient(180deg, #f8fbff 0%, var(--color-bg) 100%);
+          background: linear-gradient(180deg, #fbfcfe 0%, var(--color-bg) 38%, #f3f6fa 100%);
           color: var(--color-text);
           font-size: var(--font-size-md);
           line-height: var(--line-height-body);
@@ -184,16 +192,16 @@
           position: sticky;
           top: 0;
           z-index: 10;
-          backdrop-filter: blur(12px);
-          background: rgba(248, 251, 255, 0.9);
-          border-bottom: 1px solid rgba(211, 220, 232, 0.8);
+          backdrop-filter: blur(8px);
+          background: rgba(251, 252, 254, 0.92);
+          border-bottom: 1px solid rgba(215, 224, 234, 0.88);
         }
 
         .header-inner,
         .hero,
         .section-grid,
         .site-footer {
-          padding-block: var(--space-lg);
+          padding-block: clamp(1.25rem, 2.5vw, 1.75rem);
         }
 
         .header-inner {
@@ -218,8 +226,8 @@
           width: 2.5rem;
           height: 2.5rem;
           border-radius: 50%;
-          background: #dce9ff;
-          color: #12326b;
+          background: #e5eefc;
+          color: #183f80;
           font-weight: 800;
         }
 
@@ -249,13 +257,13 @@
 
         .nav-link:hover,
         .nav-link:focus-visible {
-          background: #e7eef9;
+          background: #eef3f9;
         }
 
         .hero {
           display: grid;
           gap: var(--space-xl);
-          padding-block: var(--space-2xl);
+          padding-block: clamp(2.5rem, 8vw, 4.5rem);
         }
 
         .hero-card,
@@ -269,18 +277,17 @@
 
         .hero-card {
           display: grid;
-          gap: var(--space-md);
+          gap: 1.1rem;
         }
 
         .eyebrow {
           display: inline-flex;
           align-items: center;
           gap: 0.4rem;
-          color: #12326b;
+          color: #204c92;
           font-weight: 700;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          font-size: 0.8rem;
+          letter-spacing: 0.04em;
+          font-size: 0.85rem;
         }
 
         .hero-actions,
@@ -295,6 +302,7 @@
           background: var(--color-accent);
           color: #ffffff;
           border: 1px solid var(--color-accent);
+          box-shadow: none;
         }
 
         .button-link:hover,
@@ -321,6 +329,10 @@
           gap: var(--space-xl);
         }
 
+        #featured-projects {
+          gap: 1.75rem;
+        }
+
         .card-grid {
           display: grid;
           gap: var(--space-lg);
@@ -335,9 +347,10 @@
 
         .card:hover,
         .card:focus-within {
-          border-color: #b6c8df;
-          transform: translateY(-2px);
-          transition: transform 160ms ease, border-color 160ms ease;
+          border-color: #b8c9de;
+          transform: translateY(-1px);
+          transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+          box-shadow: 0 14px 30px rgba(20, 32, 51, 0.08);
         }
 
         .card p {
@@ -367,15 +380,15 @@
           padding: 0.45rem 0.8rem;
           font-size: 0.92rem;
           font-weight: 600;
-          background: #eef2f7;
-          color: #364152;
-          border: 1px solid #d5dde8;
+          background: #f3f6f9;
+          color: #415165;
+          border: 1px solid #d8e0e9;
         }
 
         .badge.link {
-          background: #f4f2ff;
-          color: #5b3dc4;
-          border-color: #ddd5ff;
+          background: #edf3ff;
+          color: #2452a3;
+          border-color: #d7e4fb;
         }
 
         .external-link {
@@ -383,13 +396,13 @@
           width: fit-content;
           color: var(--color-text);
           background: var(--color-surface-muted);
-          border: 1px solid transparent;
+          border: 1px solid #dde5ee;
         }
 
         .external-link:hover,
         .external-link:focus-visible {
-          border-color: #b6c8df;
-          background: #e4edf8;
+          border-color: #b8c9de;
+          background: #edf2f8;
           color: var(--color-text);
         }
 
@@ -406,8 +419,37 @@
           justify-content: space-between;
           gap: var(--space-md);
           border-top: 1px solid var(--color-border);
-          margin-top: var(--space-2xl);
+          margin-top: clamp(2rem, 6vw, 3.5rem);
           padding-bottom: var(--space-2xl);
+        }
+
+        #featured-projects .card {
+          background:
+            linear-gradient(180deg, rgba(244, 248, 255, 0.72) 0%, rgba(255, 255, 255, 0.98) 28%),
+            var(--color-surface);
+          border-color: #ccd9ea;
+        }
+
+        #featured-projects .card .button {
+          background: #174eab;
+          border-color: #174eab;
+        }
+
+        #featured-projects .card .button:hover,
+        #featured-projects .card .button:focus-visible {
+          background: #123f8c;
+          border-color: #123f8c;
+        }
+
+        @media (max-width: 767px) {
+          .header-inner {
+            align-items: flex-start;
+          }
+
+          .hero-card,
+          .card {
+            padding: 1.35rem;
+          }
         }
       }
 
@@ -425,7 +467,7 @@
           <span class="brand-mark" aria-hidden="true">PH</span>
           <span data-site-name></span>
         </a>
-        <nav class="site-nav" aria-label="Primary" data-site-nav></nav>
+        <nav class="site-nav" aria-label="主要導覽" data-site-nav></nav>
       </div>
     </header>
 
