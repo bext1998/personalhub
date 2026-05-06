@@ -1,4 +1,4 @@
-# mazemaze|我的個人入口網站
+# mazemaze | 我的個人入口網站
 
 Personal profile hub for `mazemaze`.
 
