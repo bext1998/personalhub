@@ -10,6 +10,8 @@
   --muted:   #a7a7a7;
   --soft:    #d3d3d3;
   --border:  #3a3a3a;
+  --accent-hover: #888;
+  --accent-border: #444;
 
   --font-mono:    'Space Mono', ui-monospace, monospace;
   --font-display: 'Bebas Neue', sans-serif;
@@ -180,23 +182,38 @@ button:focus-visible {
 .identity-card:hover {
   transform: translateX(4px);
   border-color: #4a4a4a;
-  border-left-color: color-mix(in srgb, var(--accent, #555) 70%, white 30%);
+  border-left-color: var(--accent-hover);
 }
 
 .identity-card--nsr {
   --accent: #d0021b;
+  --accent-hover: #de4e5f;
+  --accent-border: #7e212f;
 }
 
 .identity-card--bext {
   --accent: #00aeef;
+  --accent-hover: #4dc6f4;
+  --accent-border: #207c9f;
 }
 
 .identity-card--kanade {
   --accent: #cccccc;
+  --accent-hover: #dbdbdb;
+  --accent-border: #7e7e7e;
 }
 
 .identity-card--carrot {
   --accent: #c9920a;
+  --accent-hover: #d9b354;
+  --accent-border: #7a6230;
+}
+
+@supports (color: color-mix(in srgb, black, white)) {
+  .identity-card {
+    --accent-hover: color-mix(in srgb, var(--accent, #555) 70%, white 30%);
+    --accent-border: color-mix(in srgb, var(--accent, #555) 45%, var(--border));
+  }
 }
 
 .identity-card__inner {
@@ -214,7 +231,7 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   background: var(--surface-strong);
-  border: 1px solid color-mix(in srgb, var(--accent, #555) 45%, var(--border));
+  border: 1px solid var(--accent-border);
   border-radius: 2px;
   overflow: hidden;
 }
@@ -245,7 +262,7 @@ button:focus-visible {
 
 .identity-card__role {
   align-self: flex-start;
-  color: color-mix(in srgb, var(--accent, #777) 70%, white 30%);
+  color: var(--accent-hover);
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 700;
