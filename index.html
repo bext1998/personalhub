@@ -3,511 +3,285 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>personalhub | 個人簡介、作品與連結</title>
-    <meta
-      name="description"
-      content="以單一資料層管理首頁介紹、社群連結、精選作品與頁尾資訊的個人展示頁。"
-    />
+    <title>mazemaze | 個人入口與創作身份</title>
+    <meta name="description" content="mazemaze 的個人入口頁，整理 AI 創作、音樂、小說、日本競馬觀測與各身份連結。" />
     <link rel="canonical" href="https://bext1998.github.io/personalhub/" />
-    <meta property="og:title" content="personalhub | 個人簡介、作品與連結" />
-    <meta
-      property="og:description"
-      content="以單一資料層管理首頁介紹、社群連結、精選作品與頁尾資訊的個人展示頁。"
-    />
+    <meta property="og:title" content="mazemaze | 個人入口與創作身份" />
+    <meta property="og:description" content="mazemaze 的個人入口頁，整理 AI 創作、音樂、小說、日本競馬觀測與各身份連結。" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="zh_TW" />
     <meta property="og:url" content="https://bext1998.github.io/personalhub/" />
-    <meta property="og:image" content="https://bext1998.github.io/personalhub/favicon.svg" />
-    <meta property="og:image:alt" content="personalhub 個人首頁的分享預覽圖示。" />
+    <meta property="og:image" content="https://bext1998.github.io/personalhub/assets/mazemaze-avatar.jpg" />
+    <meta property="og:image:alt" content="mazemaze 個人入口頁的頭像預覽圖。" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="mazemaze | 個人入口與創作身份" />
+    <meta name="twitter:description" content="mazemaze 的個人入口頁，整理 AI 創作、音樂、小說、日本競馬觀測與各身份連結。" />
+    <meta name="twitter:image" content="https://bext1998.github.io/personalhub/assets/mazemaze-avatar.jpg" />
+    <meta name="twitter:image:alt" content="mazemaze 個人入口頁的頭像預覽圖。" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <style>
-      @layer base, components, utilities;
-
-      @layer base {
-        :root {
-          color-scheme: light;
-          --color-bg: #f6f8fb;
-          --color-surface: #ffffff;
-          --color-surface-muted: #f1f4f8;
-          --color-text: #142033;
-          --color-text-muted: #4d5f76;
-          --color-border: #d7e0ea;
-          --color-accent: #1b5fcf;
-          --color-accent-strong: #154dad;
-          --color-focus: #ff9f1c;
-          --shadow-soft: 0 10px 28px rgba(20, 32, 51, 0.06);
-          --radius-sm: 0.625rem;
-          --radius-md: 1rem;
-          --radius-lg: 1.5rem;
-          --space-2xs: 0.375rem;
-          --space-xs: 0.5rem;
-          --space-sm: 0.75rem;
-          --space-md: 1rem;
-          --space-lg: 1.5rem;
-          --space-xl: 2rem;
-          --space-2xl: 3rem;
-          --font-size-sm: 0.95rem;
-          --font-size-md: 1rem;
-          --font-size-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.3rem);
-          --font-size-xl: clamp(1.5rem, 1.15rem + 1vw, 2.2rem);
-          --font-size-2xl: clamp(2.3rem, 1.7rem + 2vw, 3.6rem);
-          --line-height-tight: 1.2;
-          --line-height-body: 1.65;
-          --line-height-loose: 1.8;
-          --tap-target: 2.75rem;
-          --container-mobile: min(100% - 1.5rem, 40rem);
-          --container-tablet: min(100% - 3rem, 56rem);
-          --container-desktop: min(100% - 4rem, 72rem);
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-
-        html {
-          scroll-behavior: smooth;
-        }
-
-        body {
-          margin: 0;
-          font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-          background: linear-gradient(180deg, #fbfcfe 0%, var(--color-bg) 38%, #f3f6fa 100%);
-          color: var(--color-text);
-          font-size: var(--font-size-md);
-          line-height: var(--line-height-body);
-        }
-
-        img {
-          max-width: 100%;
-          display: block;
-        }
-
-        a {
-          color: var(--color-accent);
-          text-decoration-thickness: 0.08em;
-          text-underline-offset: 0.18em;
-        }
-
-        a:hover {
-          color: var(--color-accent-strong);
-        }
-
-        a,
-        button,
-        .nav-link {
-          min-height: var(--tap-target);
-        }
-
-        a:focus-visible,
-        button:focus-visible,
-        .nav-link:focus-visible {
-          outline: 3px solid var(--color-focus);
-          outline-offset: 3px;
-          border-radius: var(--radius-sm);
-        }
-
-        h1,
-        h2,
-        h3,
-        p,
-        ul {
-          margin-top: 0;
-        }
-
-        h1,
-        h2,
-        h3 {
-          line-height: var(--line-height-tight);
-          letter-spacing: -0.02em;
-        }
-
-        h1 {
-          font-size: var(--font-size-2xl);
-          margin-bottom: var(--space-md);
-        }
-
-        h2 {
-          font-size: var(--font-size-xl);
-          margin-bottom: var(--space-lg);
-        }
-
-        h3 {
-          font-size: var(--font-size-lg);
-          margin-bottom: var(--space-sm);
-        }
-
-        p,
-        li {
-          color: var(--color-text-muted);
-          max-width: 70ch;
-        }
-
-        ul {
-          padding-left: 1.25rem;
-        }
-
-        section {
-          scroll-margin-top: 5rem;
-        }
-
-        @media (max-width: 767px) {
-          .container {
-            width: var(--container-mobile);
-          }
-        }
-
-        @media (min-width: 768px) and (max-width: 1099px) {
-          .container {
-            width: var(--container-tablet);
-          }
-        }
-
-        @media (min-width: 1100px) {
-          .container {
-            width: var(--container-desktop);
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          html {
-            scroll-behavior: auto;
-          }
-
-          *,
-          *::before,
-          *::after {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-          }
-        }
-      }
-
-      @layer components {
-        .container {
-          margin-inline: auto;
-        }
-
-        .site-header {
-          position: sticky;
-          top: 0;
-          z-index: 10;
-          backdrop-filter: blur(8px);
-          background: rgba(251, 252, 254, 0.92);
-          border-bottom: 1px solid rgba(215, 224, 234, 0.88);
-        }
-
-        .header-inner,
-        .hero,
-        .section-grid,
-        .site-footer {
-          padding-block: clamp(1.25rem, 2.5vw, 1.75rem);
-        }
-
-        .header-inner {
-          display: flex;
-          gap: var(--space-md);
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        .brand {
-          display: inline-flex;
-          align-items: center;
-          gap: var(--space-sm);
-          font-weight: 700;
-          color: var(--color-text);
-          text-decoration: none;
-        }
-
-        .brand-mark {
-          display: grid;
-          place-items: center;
-          width: 2.5rem;
-          height: 2.5rem;
-          border-radius: 50%;
-          background: #e5eefc;
-          color: #183f80;
-          font-weight: 800;
-        }
-
-        .site-nav {
-          display: flex;
-          flex-wrap: wrap;
-          gap: var(--space-xs);
-        }
-
-        .nav-link,
-        .button-link,
-        .button,
-        .external-link {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.4rem;
-          padding: 0.7rem 1rem;
-          border-radius: var(--radius-sm);
-          text-decoration: none;
-          font-weight: 600;
-        }
-
-        .nav-link {
-          color: var(--color-text);
-        }
-
-        .nav-link:hover,
-        .nav-link:focus-visible {
-          background: #eef3f9;
-        }
-
-        .hero {
-          display: grid;
-          gap: var(--space-xl);
-          padding-block: clamp(2.5rem, 8vw, 4.5rem);
-        }
-
-        .hero-card,
-        .card {
-          background: var(--color-surface);
-          border: 1px solid var(--color-border);
-          border-radius: var(--radius-lg);
-          box-shadow: var(--shadow-soft);
-          padding: var(--space-xl);
-        }
-
-        .hero-card {
-          display: grid;
-          gap: 1.1rem;
-        }
-
-        .eyebrow {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.4rem;
-          color: #204c92;
-          font-weight: 700;
-          letter-spacing: 0.04em;
-          font-size: 0.85rem;
-        }
-
-        .hero-actions,
-        .footer-links {
-          display: flex;
-          flex-wrap: wrap;
-          gap: var(--space-sm);
-        }
-
-        .button-link,
-        .button {
-          background: var(--color-accent);
-          color: #ffffff;
-          border: 1px solid var(--color-accent);
-          box-shadow: none;
-        }
-
-        .button-link:hover,
-        .button-link:focus-visible,
-        .button:hover,
-        .button:focus-visible {
-          background: var(--color-accent-strong);
-          color: #ffffff;
-        }
-
-        .button-link.secondary {
-          background: var(--color-surface);
-          color: var(--color-text);
-          border-color: var(--color-border);
-        }
-
-        .button-link.secondary:hover,
-        .button-link.secondary:focus-visible {
-          background: var(--color-surface-muted);
-        }
-
-        .section-grid {
-          display: grid;
-          gap: var(--space-xl);
-        }
-
-        #featured-projects {
-          gap: 1.75rem;
-        }
-
-        .card-grid {
-          display: grid;
-          gap: var(--space-lg);
-          grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-        }
-
-        .card {
-          display: grid;
-          gap: var(--space-md);
-          align-content: start;
-        }
-
-        .card:hover,
-        .card:focus-within {
-          border-color: #b8c9de;
-          transform: translateY(-1px);
-          transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-          box-shadow: 0 14px 30px rgba(20, 32, 51, 0.08);
-        }
-
-        .card p {
-          margin-bottom: 0;
-        }
-
-        .card__title-row {
-          display: flex;
-          flex-wrap: wrap;
-          gap: var(--space-sm);
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        .card__meta {
-          display: flex;
-          flex-wrap: wrap;
-          gap: var(--space-xs);
-          list-style: none;
-          padding-left: 0;
-          margin: 0;
-        }
-
-        .badge {
-          width: fit-content;
-          border-radius: 999px;
-          padding: 0.45rem 0.8rem;
-          font-size: 0.92rem;
-          font-weight: 600;
-          background: #f3f6f9;
-          color: #415165;
-          border: 1px solid #d8e0e9;
-        }
-
-        .badge.link {
-          background: #edf3ff;
-          color: #2452a3;
-          border-color: #d7e4fb;
-        }
-
-        .external-link {
-          justify-content: flex-start;
-          width: fit-content;
-          color: var(--color-text);
-          background: var(--color-surface-muted);
-          border: 1px solid #dde5ee;
-        }
-
-        .external-link:hover,
-        .external-link:focus-visible {
-          border-color: #b8c9de;
-          background: #edf2f8;
-          color: var(--color-text);
-        }
-
-        .external-label {
-          color: var(--color-text-muted);
-          font-size: 0.88rem;
-          font-weight: 500;
-          overflow-wrap: anywhere;
-        }
-
-        .site-footer {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          gap: var(--space-md);
-          border-top: 1px solid var(--color-border);
-          margin-top: clamp(2rem, 6vw, 3.5rem);
-          padding-bottom: var(--space-2xl);
-        }
-
-        #featured-projects .card {
-          background:
-            linear-gradient(180deg, rgba(244, 248, 255, 0.72) 0%, rgba(255, 255, 255, 0.98) 28%),
-            var(--color-surface);
-          border-color: #ccd9ea;
-        }
-
-        #featured-projects .card .button {
-          background: #174eab;
-          border-color: #174eab;
-        }
-
-        #featured-projects .card .button:hover,
-        #featured-projects .card .button:focus-visible {
-          background: #123f8c;
-          border-color: #123f8c;
-        }
-
-        @media (max-width: 767px) {
-          .header-inner {
-            align-items: flex-start;
-          }
-
-          .hero-card,
-          .card {
-            padding: 1.35rem;
-          }
-        }
-      }
-
-      @layer utilities {
-        .muted {
-          color: var(--color-text-muted);
-        }
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&family=Noto+Sans+TC:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="site-header">
-      <div class="container header-inner">
-        <a class="brand" href="#top">
-          <span class="brand-mark" aria-hidden="true">PH</span>
-          <span data-site-name></span>
-        </a>
-        <nav class="site-nav" aria-label="主要導覽" data-site-nav></nav>
+    <main class="hub">
+
+      <!-- PROFILE HEADER -->
+      <header class="profile">
+        <div class="profile__avatar-wrap">
+          <img
+            class="profile__avatar"
+            src="assets/mazemaze-avatar.jpg"
+            alt="mazemaze 個人頭像"
+            width="96"
+            height="96"
+          />
+        </div>
+        <h1 class="profile__name">mazemaze</h1>
+        <p class="profile__tagline">
+          專門製造AI工業垃圾，本人的興趣多到數不完，是個廢物加不可回收垃圾。
+        </p>
+        <div class="profile__socials">
+          <a
+            href="https://github.com/bext1998"
+            class="social-icon"
+            aria-label="前往 mazemaze 的 GitHub"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+              <path d="M9 18c-4.51 2-5-2-7-2"/>
+            </svg>
+          </a>
+          <a
+            href="https://www.threads.com/@bext1998"
+            class="social-icon"
+            aria-label="前往 mazemaze 的 Threads（私人帳號）"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 192 192" fill="currentColor" aria-hidden="true">
+              <path d="M141.537 88.9883C140.71 88.5919 139.87 88.2104 139.019 87.8451C137.537 60.5382 122.616 44.905 97.5619 44.745C97.4484 44.7443 97.3355 44.7443 97.222 44.7443C82.2364 44.7443 69.7731 51.1409 62.102 62.7807L75.881 72.2328C81.6116 63.5383 90.6052 61.6848 97.2286 61.6848C97.3051 61.6848 97.3819 61.6848 97.4576 61.6855C105.707 61.7381 111.932 64.1366 115.961 68.814C118.893 72.2193 120.854 76.925 121.825 82.8638C114.511 81.6207 106.601 81.2385 98.145 81.7233C74.3247 83.0954 59.0111 96.9879 60.0396 116.292C60.5615 126.084 65.4397 134.508 73.775 140.011C80.8224 144.663 89.899 146.938 99.3323 146.423C111.79 145.74 121.563 140.987 128.381 132.296C133.559 125.696 136.834 117.143 138.28 106.366C144.217 109.949 148.617 114.664 151.047 120.332C155.179 129.967 155.42 145.8 142.501 158.708C131.182 170.016 117.576 174.908 97.0135 175.059C74.2042 174.89 56.9538 167.575 45.7381 153.317C35.2355 139.966 29.8077 120.682 29.6052 96C29.8077 71.3178 35.2355 52.0336 45.7381 38.6827C56.9538 24.4249 74.2039 17.11 97.0132 16.9405C119.988 17.1113 137.539 24.4614 149.184 38.788C154.894 45.8136 159.199 54.6488 162.037 64.9503L178.184 60.6422C174.744 47.9622 169.331 37.0357 161.965 27.974C147.036 9.60668 125.202 0.195148 97.0695 0H96.9569C68.8816 0.19447 47.2921 9.6418 32.7883 28.0793C19.8819 44.4864 13.2244 67.3157 13.0007 95.9325L13 96L13.0007 96.0675C13.2244 124.684 19.8819 147.514 32.7883 163.921C47.2921 182.358 68.8816 191.806 96.9569 192H97.0695C122.03 191.827 139.624 185.292 154.118 170.811C173.081 151.866 172.51 128.119 166.26 113.541C161.776 103.087 153.227 94.5962 141.537 88.9883ZM98.4405 129.507C88.0005 130.095 77.1544 125.409 76.6196 115.372C76.2232 107.93 81.9158 99.626 99.0812 98.6368C101.047 98.5234 102.976 98.468 104.871 98.468C111.106 98.468 116.939 99.0737 122.242 100.233C120.264 124.935 108.662 128.946 98.4405 129.507Z"/>
+            </svg>
+          </a>
+        </div>
+      </header>
+
+      <!-- SECTION DIVIDER -->
+      <div class="section-divider fade-in-up" aria-hidden="true">
+        <span>創作身份</span>
       </div>
-    </header>
 
-    <main id="top">
-      <section class="container hero" aria-labelledby="hero-title">
-        <article class="hero-card">
-          <p class="eyebrow" data-hero-eyebrow></p>
-          <h1 id="hero-title" data-hero-title></h1>
-          <p data-hero-subtitle></p>
-          <p data-hero-description></p>
-          <div class="hero-actions" data-hero-actions></div>
-        </article>
-      </section>
-
-      <section class="container section-grid" id="social-links" aria-labelledby="social-title">
-        <div>
-          <h2 id="social-title" data-social-title></h2>
-          <p data-social-description></p>
+      <!-- NSR CARD -->
+      <article
+        class="identity-card fade-in-up"
+        style="--accent: #D0021B"
+        aria-label="NSR 百鬼運動競速身份卡"
+      >
+        <div class="identity-card__inner">
+          <div class="identity-card__logo-wrap">
+            <img
+              src="assets/nsr-logo.png"
+              alt="NSR 百鬼運動競速標誌"
+              width="64"
+              height="64"
+              class="identity-card__logo"
+            />
+          </div>
+          <div class="identity-card__body">
+            <h2 class="identity-card__name">NSR — 百鬼運動競速</h2>
+            <p class="identity-card__desc">YT 賽車模擬與競速體育頻道</p>
+            <div class="identity-card__links">
+              <a
+                href="https://www.youtube.com/@NSR3954"
+                class="link-pill"
+                aria-label="前往 NSR 百鬼運動競速 YouTube 頻道"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
+                  <polygon points="10 15 15 12 10 9"/>
+                </svg>
+                YouTube
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="card-grid" data-links-grid></div>
-      </section>
+      </article>
 
-      <section class="container section-grid" id="featured-projects" aria-labelledby="projects-title">
-        <div>
-          <h2 id="projects-title" data-projects-title></h2>
-          <p data-projects-description></p>
+      <!-- BEXT CARD -->
+      <article
+        class="identity-card fade-in-up"
+        style="--accent: #00AEEF"
+        aria-label="BEXT 作曲創作身份卡"
+      >
+        <div class="identity-card__inner">
+          <div class="identity-card__logo-wrap">
+            <img
+              src="assets/bext2023logo.png"
+              alt="BEXT 標誌"
+              width="64"
+              height="64"
+              class="identity-card__logo"
+            />
+          </div>
+          <div class="identity-card__body">
+            <h2 class="identity-card__name">BEXT</h2>
+            <p class="identity-card__desc">作曲創作 YT 頻道</p>
+            <div class="identity-card__links">
+              <a
+                href="https://www.youtube.com/@bextukhc"
+                class="link-pill"
+                aria-label="前往 BEXT YouTube 頻道"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
+                  <polygon points="10 15 15 12 10 9"/>
+                </svg>
+                YouTube
+              </a>
+              <a
+                href="https://x.com/bext1998"
+                class="link-pill"
+                aria-label="前往 BEXT 的 X 帳號"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.261 5.632 5.903-5.632Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                X
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="card-grid" data-projects-grid></div>
-      </section>
 
-      <section class="container section-grid" id="about" aria-labelledby="about-title">
-        <div>
-          <h2 id="about-title" data-about-title></h2>
-          <p data-about-description></p>
+        <!-- Sub-brand: Silent Insanity -->
+        <div class="sub-brand fade-in-up" style="--sub-accent: #8B0000">
+          <div class="sub-brand__logo-wrap">
+            <img
+              src="assets/silent-insanity.png"
+              alt="Silent Insanity 標誌"
+              width="40"
+              height="40"
+              class="sub-brand__logo"
+              loading="lazy"
+            />
+          </div>
+          <div class="sub-brand__body">
+            <span class="sub-brand__name">Silent Insanity</span>
+            <span class="sub-brand__desc">哥德暗黑風格音樂分支</span>
+          </div>
         </div>
-        <div class="hero-card" data-about-copy></div>
-      </section>
+
+        <!-- Sub-brand: Azure Rhythm -->
+        <div class="sub-brand fade-in-up" style="--sub-accent: #00BCD4">
+          <div class="sub-brand__logo-wrap">
+            <img
+              src="assets/azure-rhythm.png"
+              alt="Azure Rhythm 標誌"
+              width="40"
+              height="40"
+              class="sub-brand__logo"
+              loading="lazy"
+            />
+          </div>
+          <div class="sub-brand__body">
+            <span class="sub-brand__name">Azure Rhythm</span>
+            <span class="sub-brand__desc">電子搖滾風格音樂分支</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- 白河奏 CARD -->
+      <article
+        class="identity-card fade-in-up"
+        style="--accent: #CCCCCC"
+        aria-label="白河奏 Shirakawa Kanade 小說創作身份卡"
+      >
+        <div class="identity-card__inner">
+          <div class="identity-card__logo-wrap">
+            <img
+              src="assets/shirakawa-kanade.png"
+              alt="白河奏 Shirakawa Kanade 標誌"
+              width="64"
+              height="64"
+              class="identity-card__logo"
+            />
+          </div>
+          <div class="identity-card__body">
+            <h2 class="identity-card__name">白河奏 Shirakawa Kanade</h2>
+            <p class="identity-card__desc">小說創作名義</p>
+            <div class="identity-card__links">
+              <a
+                href="https://www.kadokado.com.tw/user/278577"
+                class="link-pill"
+                aria-label="前往白河奏的 KadoKado 頁面"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                </svg>
+                KadoKado
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CarrotWinClub CARD -->
+      <article
+        class="identity-card fade-in-up"
+        style="--accent: #C9920A"
+        aria-label="CarrotWinClub 日本競馬觀測誌身份卡"
+      >
+        <div class="identity-card__inner">
+          <div class="identity-card__logo-wrap identity-card__logo-wrap--rounded">
+            <img
+              src="assets/carrotwinclub.jpg"
+              alt="CarrotWinClub 日本競馬觀測誌標誌"
+              width="64"
+              height="64"
+              class="identity-card__logo"
+            />
+          </div>
+          <div class="identity-card__body">
+            <h2 class="identity-card__name">CarrotWinClub 日本競馬觀測誌</h2>
+            <p class="identity-card__desc">日本競馬觀測與分析</p>
+            <div class="identity-card__links">
+              <a
+                href="https://www.threads.com/@carrotwinclub564"
+                class="link-pill"
+                aria-label="前往 CarrotWinClub 日本競馬觀測誌 Threads"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 192 192" fill="currentColor" aria-hidden="true">
+                  <path d="M141.537 88.9883C140.71 88.5919 139.87 88.2104 139.019 87.8451C137.537 60.5382 122.616 44.905 97.5619 44.745C97.4484 44.7443 97.3355 44.7443 97.222 44.7443C82.2364 44.7443 69.7731 51.1409 62.102 62.7807L75.881 72.2328C81.6116 63.5383 90.6052 61.6848 97.2286 61.6848C97.3051 61.6848 97.3819 61.6848 97.4576 61.6855C105.707 61.7381 111.932 64.1366 115.961 68.814C118.893 72.2193 120.854 76.925 121.825 82.8638C114.511 81.6207 106.601 81.2385 98.145 81.7233C74.3247 83.0954 59.0111 96.9879 60.0396 116.292C60.5615 126.084 65.4397 134.508 73.775 140.011C80.8224 144.663 89.899 146.938 99.3323 146.423C111.79 145.74 121.563 140.987 128.381 132.296C133.559 125.696 136.834 117.143 138.28 106.366C144.217 109.949 148.617 114.664 151.047 120.332C155.179 129.967 155.42 145.8 142.501 158.708C131.182 170.016 117.576 174.908 97.0135 175.059C74.2042 174.89 56.9538 167.575 45.7381 153.317C35.2355 139.966 29.8077 120.682 29.6052 96C29.8077 71.3178 35.2355 52.0336 45.7381 38.6827C56.9538 24.4249 74.2039 17.11 97.0132 16.9405C119.988 17.1113 137.539 24.4614 149.184 38.788C154.894 45.8136 159.199 54.6488 162.037 64.9503L178.184 60.6422C174.744 47.9622 169.331 37.0357 161.965 27.974C147.036 9.60668 125.202 0.195148 97.0695 0H96.9569C68.8816 0.19447 47.2921 9.6418 32.7883 28.0793C19.8819 44.4864 13.2244 67.3157 13.0007 95.9325L13 96L13.0007 96.0675C13.2244 124.684 19.8819 147.514 32.7883 163.921C47.2921 182.358 68.8816 191.806 96.9569 192H97.0695C122.03 191.827 139.624 185.292 154.118 170.811C173.081 151.866 172.51 128.119 166.26 113.541C161.776 103.087 153.227 94.5962 141.537 88.9883ZM98.4405 129.507C88.0005 130.095 77.1544 125.409 76.6196 115.372C76.2232 107.93 81.9158 99.626 99.0812 98.6368C101.047 98.5234 102.976 98.468 104.871 98.468C111.106 98.468 116.939 99.0737 122.242 100.233C120.264 124.935 108.662 128.946 98.4405 129.507Z"/>
+                </svg>
+                Threads
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- FOOTER -->
+      <footer class="hub-footer">
+        <p class="hub-footer__copy">&copy; mazemaze</p>
+      </footer>
+
     </main>
-
-    <footer class="container site-footer" id="footer" data-footer-meta></footer>
-    <script type="module" src="assets/js/main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
