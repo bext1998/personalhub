@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>mazemaze | 我的個人網站</title>
-    <meta name="description" content="mazemaze 的個人入口頁，整理 AI 創作、音樂、小說、日本競馬觀測與各身份連結。" />
-    <link rel="canonical" href="https://bext1998.github.io/personalhub/" />
-    <meta property="og:title" content="mazemaze | 個人入口與創作身份" />
-    <meta property="og:description" content="mazemaze 的個人入口頁，整理 AI 創作、音樂、小說、日本競馬觀測與各身份連結。" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="zh_TW" />
-    <meta property="og:url" content="https://bext1998.github.io/personalhub/" />
-    <meta property="og:image" content="https://bext1998.github.io/personalhub/assets/mazemaze-avatar.jpg" />
-    <meta property="og:image:alt" content="mazemaze 個人入口頁的頭像預覽圖。" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="mazemaze | 個人入口與創作身份" />
-    <meta name="twitter:description" content="mazemaze 的個人入口頁，整理 AI 創作、音樂、小說、日本競馬觀測與各身份連結。" />
-    <meta name="twitter:image" content="https://bext1998.github.io/personalhub/assets/mazemaze-avatar.jpg" />
-    <meta name="twitter:image:alt" content="mazemaze 個人入口頁的頭像預覽圖。" />
-    <link rel="icon" type="image/jpeg" href="favicon.jpg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mazemaze | 個人入口與創作身份</title>
+    <meta name="description" content="mazemaze 的個人入口頁，整理 AI 創作、音樂、小說、日本競馬觀測與各身份連結。">
+    <link rel="canonical" href="https://bext1998.github.io/personalhub/">
+    <meta property="og:title" content="mazemaze | 個人入口與創作身份">
+    <meta property="og:description" content="mazemaze 的個人入口頁，整理 AI 創作、音樂、小說、日本競馬觀測與各身份連結。">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:url" content="https://bext1998.github.io/personalhub/">
+    <meta property="og:image" content="https://bext1998.github.io/personalhub/assets/mazemaze-avatar.jpg">
+    <meta property="og:image:alt" content="mazemaze 個人入口頁的頭像預覽圖。">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="mazemaze | 個人入口與創作身份">
+    <meta name="twitter:description" content="mazemaze 的個人入口頁，整理 AI 創作、音樂、小說、日本競馬觀測與各身份連結。">
+    <meta name="twitter:image" content="https://bext1998.github.io/personalhub/assets/mazemaze-avatar.jpg">
+    <meta name="twitter:image:alt" content="mazemaze 個人入口頁的頭像預覽圖。">
+    <link rel="icon" type="image/jpeg" href="favicon.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&family=Noto+Sans+TC:wght@400;500&display=swap"
       rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+    >
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <main class="hub">
@@ -39,7 +39,7 @@
             alt="mazemaze 個人頭像"
             width="96"
             height="96"
-          />
+          >
         </div>
         <h1 class="profile__name">mazemaze</h1>
         <p class="profile__tagline">
@@ -79,8 +79,7 @@
 
       <!-- NSR CARD -->
       <article
-        class="identity-card fade-in-up"
-        style="--accent: #D0021B"
+        class="identity-card identity-card--nsr fade-in-up"
         aria-label="NSR 百鬼運動競速身份卡"
       >
         <div class="identity-card__inner">
@@ -91,11 +90,24 @@
               width="64"
               height="64"
               class="identity-card__logo"
-            />
+            >
           </div>
           <div class="identity-card__body">
-            <h2 class="identity-card__name">NSR — 百鬼運動競速</h2>
-            <p class="identity-card__desc">賽車模擬與競速體育頻道</p>
+            <div class="identity-card__header">
+              <span class="identity-card__role">競速頻道</span>
+              <h2 class="identity-card__name">NSR - 百鬼運動競速</h2>
+            </div>
+            <p class="identity-card__desc">以賽車模擬、競速遊戲與體育向企劃為主的影像入口。</p>
+            <dl class="identity-card__facts">
+              <div class="identity-card__fact">
+                <dt>代表內容</dt>
+                <dd>模擬賽車、競速體育</dd>
+              </div>
+              <div class="identity-card__fact">
+                <dt>平台目的</dt>
+                <dd>集中發布競速相關影片</dd>
+              </div>
+            </dl>
             <div class="identity-card__links">
               <a
                 href="https://www.youtube.com/@NSR3954"
@@ -117,8 +129,7 @@
 
       <!-- BEXT CARD -->
       <article
-        class="identity-card fade-in-up"
-        style="--accent: #00AEEF"
+        class="identity-card identity-card--bext fade-in-up"
         aria-label="BEXT 作曲創作身份卡"
       >
         <div class="identity-card__inner">
@@ -129,11 +140,24 @@
               width="64"
               height="64"
               class="identity-card__logo"
-            />
+            >
           </div>
           <div class="identity-card__body">
-            <h2 class="identity-card__name">BEXT</h2>
-            <p class="identity-card__desc">作曲創作頻道</p>
+            <div class="identity-card__header">
+              <span class="identity-card__role">音樂名義</span>
+              <h2 class="identity-card__name">BEXT</h2>
+            </div>
+            <p class="identity-card__desc">作曲、編曲與音樂分支企劃的主要創作名義。</p>
+            <dl class="identity-card__facts">
+              <div class="identity-card__fact">
+                <dt>代表內容</dt>
+                <dd>原創曲、風格實驗</dd>
+              </div>
+              <div class="identity-card__fact">
+                <dt>平台目的</dt>
+                <dd>發布音樂作品與創作近況</dd>
+              </div>
+            </dl>
             <div class="identity-card__links">
               <a
                 href="https://www.youtube.com/@bextukhc"
@@ -165,7 +189,7 @@
         </div>
 
         <!-- Sub-brand: Silent Insanity -->
-        <div class="sub-brand fade-in-up" style="--sub-accent: #8B0000">
+        <div class="sub-brand sub-brand--silent fade-in-up">
           <div class="sub-brand__logo-wrap">
             <img
               src="assets/silent-insanity.png"
@@ -174,7 +198,7 @@
               height="40"
               class="sub-brand__logo"
               loading="lazy"
-            />
+            >
           </div>
           <div class="sub-brand__body">
             <span class="sub-brand__name">Silent Insanity</span>
@@ -183,7 +207,7 @@
         </div>
 
         <!-- Sub-brand: Azure Rhythm -->
-        <div class="sub-brand fade-in-up" style="--sub-accent: #00BCD4">
+        <div class="sub-brand sub-brand--azure fade-in-up">
           <div class="sub-brand__logo-wrap">
             <img
               src="assets/azure-rhythm.png"
@@ -192,7 +216,7 @@
               height="40"
               class="sub-brand__logo"
               loading="lazy"
-            />
+            >
           </div>
           <div class="sub-brand__body">
             <span class="sub-brand__name">Azure Rhythm</span>
@@ -203,8 +227,7 @@
 
       <!-- 白河奏 CARD -->
       <article
-        class="identity-card fade-in-up"
-        style="--accent: #CCCCCC"
+        class="identity-card identity-card--kanade fade-in-up"
         aria-label="白河奏 Shirakawa Kanade 小說創作身份卡"
       >
         <div class="identity-card__inner">
@@ -215,11 +238,24 @@
               width="64"
               height="64"
               class="identity-card__logo"
-            />
+            >
           </div>
           <div class="identity-card__body">
-            <h2 class="identity-card__name">白河奏 Shirakawa Kanade</h2>
-            <p class="identity-card__desc">小說創作名義</p>
+            <div class="identity-card__header">
+              <span class="identity-card__role">小說名義</span>
+              <h2 class="identity-card__name">白河奏 Shirakawa Kanade</h2>
+            </div>
+            <p class="identity-card__desc">用於小說、文字作品與連載平台活動的創作身份。</p>
+            <dl class="identity-card__facts">
+              <div class="identity-card__fact">
+                <dt>代表內容</dt>
+                <dd>小說、角色敘事</dd>
+              </div>
+              <div class="identity-card__fact">
+                <dt>平台目的</dt>
+                <dd>整理文字作品與作者頁面</dd>
+              </div>
+            </dl>
             <div class="identity-card__links">
               <a
                 href="https://www.kadokado.com.tw/user/278577"
@@ -241,8 +277,7 @@
 
       <!-- CarrotWinClub CARD -->
       <article
-        class="identity-card fade-in-up"
-        style="--accent: #C9920A"
+        class="identity-card identity-card--carrot fade-in-up"
         aria-label="CarrotWinClub 日本競馬觀測誌身份卡"
       >
         <div class="identity-card__inner">
@@ -253,11 +288,24 @@
               width="64"
               height="64"
               class="identity-card__logo"
-            />
+            >
           </div>
           <div class="identity-card__body">
-            <h2 class="identity-card__name">CarrotWinClub 日本競馬觀測誌</h2>
-            <p class="identity-card__desc">日本競馬觀測與分析</p>
+            <div class="identity-card__header">
+              <span class="identity-card__role">競馬觀測</span>
+              <h2 class="identity-card__name">CarrotWinClub 日本競馬觀測誌</h2>
+            </div>
+            <p class="identity-card__desc">日本競馬資訊、賽事觀察與短評分析的專門身份。</p>
+            <dl class="identity-card__facts">
+              <div class="identity-card__fact">
+                <dt>代表內容</dt>
+                <dd>日本競馬觀測、賽事分析</dd>
+              </div>
+              <div class="identity-card__fact">
+                <dt>平台目的</dt>
+                <dd>發布即時短評與觀察筆記</dd>
+              </div>
+            </dl>
             <div class="identity-card__links">
               <a
                 href="https://www.threads.com/@carrotwinclub564"
