@@ -10,7 +10,7 @@ Personal profile hub for `mazemaze`.
 - `style.css`：放置視覺樣式、版面配置、響應式規則與動畫樣式。
 - `main.js`：放置頁面互動，目前負責進場動畫的顯示時機。
 - `assets/`：放置 avatar、品牌 logo 與其他首頁圖片素材。
-- `favicon.svg`：網站 icon。
+- `favicon.jpg`：網站 icon。
 
 ## `index.html` 內容
 
