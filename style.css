@@ -209,6 +209,12 @@ button:focus-visible {
   --accent-border: #7a6230;
 }
 
+.identity-card--maze-coder {
+  --accent: #8f7aff;
+  --accent-hover: #b3a7ff;
+  --accent-border: #5d529f;
+}
+
 @supports (color: color-mix(in srgb, black, white)) {
   .identity-card {
     --accent-hover: color-mix(in srgb, var(--accent, #555) 70%, white 30%);
