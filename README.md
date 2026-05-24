@@ -34,7 +34,7 @@ personalhub/
 │   └── .sub-brand--azure        #   └ Azure Rhythm（電子搖滾分支）
 ├── .identity-card--kanade       # 白河奏 Shirakawa Kanade（小說名義）
 ├── .identity-card--carrot       # CarrotWinClub 日本競馬觀測誌
-├── .section-divider "代理編程"
+├── .section-divider "AI 代理編程"
 ├── .identity-card--maze-coder   # maze-coder（AI coding agent 技能包）
 └── .hub-footer
 ```
