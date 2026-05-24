@@ -2,7 +2,7 @@
 
 ## 目的
 
-`personalhub` 是 mazemaze 的個人入口頁，集中展示公開身份、創作名義與作品連結。訪客看到一張一張的身份卡片，點擊連結前往各平台。
+`personalhub` 是 mazemaze 的個人入口頁，集中展示所有公開身份、創作名義與作品連結。訪客看到一張一張的身份卡片，點擊連結前往各平台。
 
 **這個網站不做的事：**
 - 沒有後端、沒有資料庫、沒有登入。
@@ -25,9 +25,10 @@
 
 ### Section Dividers
 
-目前有一個：
+目前有兩個：
 
 1. `創作身份` — 位於 profile 與第一張身份卡片之間。
+2. `AI 代理編程` — 位於 CarrotWinClub 卡片與 maze-coder 卡片之間。
 
 新增卡片群組時應同步新增對應的 section divider。若只是補充既有創作身份，沿用現有 divider。
 
@@ -89,6 +90,15 @@
 - logo: `assets/carrotwinclub.jpg`
 - logo 裁切: 圓形裁切（`.identity-card__logo-wrap--rounded`）
 
+#### maze-coder
+
+- role: （無，由 section divider 說明脈絡）
+- desc: 可攜式 Harness Engineering 技能包，讓 Claude Code、Codex、Cursor、opencode 共用同一套工程規範。
+- facts: 代表內容／11 個 AI coding agent 工作流技能；平台目的／跨工具維持一致、可重複的工程流程
+- links: GitHub `https://github.com/bext1998/maze-coder`
+- accent: `#8f7aff`（紫）
+- logo: inline SVG（無圖片素材）
+
 ### Sub-brands
 
 附屬在 BEXT 卡片下方：
@@ -107,8 +117,8 @@
 ## 新增身份卡片流程
 
 1. 收集卡片資料：slug、名稱、role、desc、2 個 facts、links、logo、accent 色。
-2. 判斷是否屬於現有 `創作身份` 群組；若不是，新增 section divider。
-3. 將 logo 放入 `assets/`，確認檔名穩定、可讀、無空白。
+2. 判斷是否屬於既有 section；若不是，新增 section divider。
+3. 將 logo 放入 `assets/`，確認檔名穩定、可讀、無空白；若使用 inline SVG，需明確標示。
 4. 在 `style.css` 新增 `.identity-card--{slug}` 色彩變數。
 5. 在 `index.html` 複製最近鄰的 `<article>` 結構，填入內容。
 6. 若新增主要內容類型，更新 `<head>` description / OG / Twitter description。
@@ -126,8 +136,8 @@
 - 代表內容:
 - 平台目的:
 - 外部連結:
-- logo 檔案:
-- logo alt:
+- logo 檔案或 inline SVG:
+- logo alt 或 SVG 可存取說明:
 - accent 色:
 - 所屬 section:
 - 是否需要新增 section divider:
@@ -207,7 +217,7 @@
 - [FROZEN] 樣式入口是根目錄 `style.css`，不得改成打包或多檔 import 流程，除非另有明確重構需求。
 - 每張主要身份卡片必須有唯一 `.identity-card--{slug}`。
 - 每張主要身份卡片必須有 `aria-label`。
-- 每個 logo `<img>` 必須有非空 `alt`、`width`、`height`。
+- 每個 logo `<img>` 必須有非空 `alt`、`width`、`height`；inline SVG 必須明確標示為圖片或裝飾。
 - `main.js` 必須保留 IIFE 與 `prefers-reduced-motion` 行為。
 - canonical URL 與 OG URL 必須指向 GitHub Pages 部署路徑。
 
@@ -265,5 +275,5 @@
 | 問題 | 狀態 | 備註 |
 |------|------|------|
 | 是否保留 `assets/css/` 舊拆分檔案 | 待確認 | 目前以根目錄 `style.css` 為實際來源 |
-| 新增非創作身份時的 section 命名規則 | 待確認 | 目前僅規定 2 至 4 字繁中短標籤 |
+| 新增非既有群組身份時的 section 命名規則 | 待確認 | 目前僅規定 2 至 4 字繁中短標籤 |
 | 未來是否需要把卡片內容資料化 | 已確認：目前不需要 | 維持零依賴與單頁 HTML |

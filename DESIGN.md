@@ -72,13 +72,14 @@ Token 維護規則：
 | BEXT | `#00aeef` | 天空藍 |
 | 白河奏 | `#cccccc` | 銀白 |
 | CarrotWinClub | `#c9920a` | 琥珀橙 |
+| maze-coder | `#8f7aff` | 電紫 |
 
 `--accent-hover`（hover 時的邊框色）與 `--accent-border`（logo wrap 邊框色）：
 - 瀏覽器支援 `color-mix` 時，由 `@supports` 自動計算。
 - 不支援時，使用 CSS 中手動定義的 fallback 值。
 
 新增 accent 色檢查：
-- [ ] 與既有四張卡片可明顯區分。
+- [ ] 與既有卡片可明顯區分。
 - [ ] 在深色背景上有足夠辨識度。
 - [ ] 不讓整頁變成單一色系。
 - [ ] fallback 的 `--accent-hover` 與 `--accent-border` 都已填寫。

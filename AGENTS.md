@@ -1,6 +1,6 @@
 # AGENTS.md — AI Agent 操作指引
 
-本文件說明 AI coding agent 在此 repo 工作時應遵守的規則。此專案是零依賴靜態單頁網站，主要維護範圍是 `index.html`、`style.css`、`main.js` 與 `assets/`。
+本文件說明 AI coding agent（Claude Code、Codex、Cursor 等）在此 repo 工作時應遵守的規則。此專案是零依賴靜態單頁網站，主要維護範圍是 `index.html`、`style.css`、`main.js` 與 `assets/`。
 
 ---
 
@@ -12,7 +12,7 @@
 | 調整顏色、間距、字體、hover、動畫樣式 | `style.css` | `DESIGN.md` 是否仍符合 |
 | 修改動畫邏輯或新增互動 | `main.js` | `prefers-reduced-motion` 與 IIFE 是否保留 |
 | 新增或替換圖片素材 | `assets/` + `index.html` | `alt`、`width`、`height`、相對路徑 |
-| 新增身份卡片 | `index.html` + `style.css` | `spec.md` 卡片清單、metadata、section divider |
+| 新增身份卡片 | `index.html` + `style.css`（色彩變數） | `spec.md` 卡片清單、metadata、section divider |
 | 新增 sub-brand | `index.html` + `style.css` | 父卡片位置、`.sub-brand--{slug}` 變數 |
 | 更新 SEO / OG 資訊 | `index.html` 的 `<head>` | canonical / OG URL 不可改 |
 | 更新專案規則或設計規格 | `AGENTS.md` / `spec.md` / `DESIGN.md` | 不得與實作現況矛盾 |
@@ -79,7 +79,7 @@
 - class 必須包含 `identity-card identity-card--{slug} fade-in-up`。
 - 卡片名稱使用 `<h2>`，不可降級為 `<h3>` 或其他標題。
 - `.identity-card__role` 可省略，但只有在 section divider 已清楚說明脈絡時才省略。
-- `link-pill` 的 `aria-label` 必須包含目的地描述，不可只寫平台名稱。
+- link-pill 的 `aria-label` 必須包含目的地描述，不可只寫平台名稱。
 - 每張卡片標準使用 2 個 fact；若要增減 fact，先確認手機版不會造成資訊擁擠。
 
 ### Section Dividers
@@ -173,6 +173,14 @@ sub-brand 只用於隸屬於某張主要身份卡片的子品牌或分支企劃�
 - `prefers-reduced-motion` 檢查必須保留。
 - 不新增全域變數。
 - 若新增互動，優先使用既有 class 切換模式，避免把樣式直接寫進 JavaScript。
+
+---
+
+## 禁止觸碰的部分
+
+- `<head>` 的 canonical URL 和 OG URL（部署路徑固定）。
+- Google Fonts URL（字體組合已確定）。
+- `favicon.jpg` 的引用路徑。
 
 ---
 
