@@ -18,8 +18,8 @@
 
 | 欄位 | 目前值 | 備註 |
 |------|--------|------|
-| 頭像 | `assets/mazemaze-avatar.jpg` | 96x96px，圓形裁切 |
-| 名稱 | mazemaze | `<h1>`，Space Mono 字體 |
+| 品牌字標 | `assets/mazemaze-logo.png` | supplied 白色 `>_mazemaze` 完整字標，原始 616x61px；放在可存取的 `<h1>` 內 |
+| 名稱 | mazemaze | 由字標圖片提供可見呈現，`<h1>` 保留頁面主標題語意 |
 | Tagline | 專門製造AI工業垃圾，本人的興趣多到數不完，是個廢物加不可回收垃圾。 | 可自由更新 |
 | 社群連結 | GitHub (`bext1998`)、Threads (`@bext1998`) | 圖示按鈕，40x40px |
 
@@ -88,7 +88,17 @@
 - links: Threads `https://www.threads.com/@carrotwinclub564`
 - accent: `#c9920a`（琥珀）
 - logo: `assets/carrotwinclub.jpg`
-- logo 裁切: 圓形裁切（`.identity-card__logo-wrap--rounded`）
+- logo 資產: 保留 `assets/carrotwinclub.jpg` 原始素材；容器使用 4px 以下低圓角，不再使用圓形裁切
+
+#### maze-coder
+
+- section: `AI 代理編程`
+- desc: 持續擴充中的可攜式 Harness Engineering 技能包，讓 Claude Code、Codex、Cursor、opencode 共用一致的工程流程。
+- facts: 代表內容／目前 22 個 AI coding agent 技能，持續增加中；平台目的／跨工具維持一致、可重複的工程流程
+- links: GitHub `https://github.com/bext1998/maze-coder`
+- accent: `#8f7aff`（紫色）
+- logo: 卡片內既有的 `MC` 終端語彙 SVG
+- protection: 此區塊是網站核心作品集內容，任何風格改版、卡片整理或內容同步都必須保留；只有使用者明確要求時才能移除。
 
 #### maze-coder
 
@@ -178,7 +188,7 @@
 | canonical URL | `https://bext1998.github.io/personalhub/` |
 | OG image | `https://bext1998.github.io/personalhub/assets/mazemaze-avatar.jpg` |
 | Twitter card | `summary` |
-| 字體 | Space Mono 400/700、Bebas Neue、Noto Sans TC 400/500（Google Fonts） |
+| 字體 | Space Mono 400/700、Noto Sans TC 400/500/700（Google Fonts）；不載入 Bebas Neue |
 
 新增主要類別、刪除主要類別或改變頁面定位時，更新 `description`、`og:description`、`twitter:description` 以反映新內容。canonical URL、OG URL 與部署路徑綁定，不因文案調整而修改。
 
@@ -215,6 +225,7 @@
 - [FROZEN] 專案維持純靜態，無後端、資料庫、登入、建置流程。
 - [FROZEN] 主要入口檔案是根目錄 `index.html`、`style.css`、`main.js`。
 - [FROZEN] 樣式入口是根目錄 `style.css`，不得改成打包或多檔 import 流程，除非另有明確重構需求。
+- [FROZEN] `AI 代理編程` section divider 與 `.identity-card--maze-coder` 卡片必須存在，除非使用者明確要求移除。
 - 每張主要身份卡片必須有唯一 `.identity-card--{slug}`。
 - 每張主要身份卡片必須有 `aria-label`。
 - 每個 logo `<img>` 必須有非空 `alt`、`width`、`height`；inline SVG 必須明確標示為圖片或裝飾。
