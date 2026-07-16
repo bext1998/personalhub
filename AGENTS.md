@@ -28,6 +28,12 @@
 
 ## 修改 index.html 的規則
 
+### 受保護核心區塊
+
+- `AI 代理編程` section divider 與 `.identity-card--maze-coder` 是網站固定作品集內容，任何視覺改版、卡片排序或內容同步都必須保留。
+- 修改 `index.html` 後，必須確認 `AI 代理編程`、`identity-card--maze-coder` 與 `https://github.com/bext1998/maze-coder` 仍存在。
+- 只有使用者明確要求移除 maze-coder 作品集時才能刪除；不得因「維持現有內容」、簡化版面或重做設計而省略。
+
 ### 身份卡片
 
 每張主要身份卡片必須符合下列結構：
