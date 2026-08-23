@@ -28,7 +28,7 @@
 目前有兩個：
 
 1. `創作身份` — 位於 profile 與第一張身份卡片之間。
-2. `AI 代理編程` — 位於 CarrotWinClub 卡片與 maze-coder 卡片之間。
+2. `AI 代理編碼` — 位於 CarrotWinClub 卡片與 maze-coder、Watt 卡片之間。
 
 新增卡片群組時應同步新增對應的 section divider。若只是補充既有創作身份，沿用現有 divider。
 
@@ -92,7 +92,7 @@
 
 #### maze-coder
 
-- section: `AI 代理編程`
+- section: `AI 代理編碼`
 - desc: 持續擴充中的可攜式 Harness Engineering 技能包，讓 Claude Code、Codex、Cursor、opencode 共用一致的工程流程。
 - facts: 代表內容／目前 22 個 AI coding agent 技能，持續增加中；平台目的／跨工具維持一致、可重複的工程流程
 - links: GitHub `https://github.com/bext1998/maze-coder`
@@ -108,6 +108,15 @@
 - links: GitHub `https://github.com/bext1998/maze-coder`
 - accent: `#8f7aff`（紫）
 - logo: inline SVG（無圖片素材）
+
+#### Watt
+
+- role: 自動化引擎
+- desc: Windows-first、local-first 的確定性 Pipeline 執行與驗證引擎。
+- facts: 代表內容／test、build、package pipeline；平台目的／提供可供程式解析的驗證結果
+- links: 官方網站 `https://bext1998.github.io/WattCIAutomationEngine/index.html`、GitHub `https://github.com/bext1998/WattCIAutomationEngine`
+- accent: `#f4d000`（黃）
+- logo: `assets/watt-icon.png`
 
 ### Sub-brands
 
@@ -184,7 +193,7 @@
 | 屬性 | 目前值 |
 |------|--------|
 | `<title>` | mazemaze \| 我的個人入口網站 |
-| `description` | mazemaze 的個人入口頁，整理 AI 創作、音樂、小說、日本競馬觀測與各身份連結。 |
+| `description` | mazemaze 的個人入口頁，整理 AI 代理編碼、音樂、小說、日本競馬觀測與各身份連結。 |
 | canonical URL | `https://bext1998.github.io/personalhub/` |
 | OG image | `https://bext1998.github.io/personalhub/assets/mazemaze-avatar.jpg` |
 | Twitter card | `summary` |
@@ -225,7 +234,7 @@
 - [FROZEN] 專案維持純靜態，無後端、資料庫、登入、建置流程。
 - [FROZEN] 主要入口檔案是根目錄 `index.html`、`style.css`、`main.js`。
 - [FROZEN] 樣式入口是根目錄 `style.css`，不得改成打包或多檔 import 流程，除非另有明確重構需求。
-- [FROZEN] `AI 代理編程` section divider 與 `.identity-card--maze-coder` 卡片必須存在，除非使用者明確要求移除。
+- [FROZEN] `AI 代理編碼` section divider 與 `.identity-card--maze-coder` 卡片必須存在，除非使用者明確要求移除。
 - 每張主要身份卡片必須有唯一 `.identity-card--{slug}`。
 - 每張主要身份卡片必須有 `aria-label`。
 - 每個 logo `<img>` 必須有非空 `alt`、`width`、`height`；inline SVG 必須明確標示為圖片或裝飾。
