@@ -230,6 +230,12 @@ button:focus-visible {
   --accent-border: #5d529f;
 }
 
+.identity-card--watt {
+  --accent: #f4d000;
+  --accent-hover: #f8df4d;
+  --accent-border: #847122;
+}
+
 @supports (color: color-mix(in srgb, black, white)) {
   .identity-card {
     --accent-hover: color-mix(in srgb, var(--accent) 70%, white 30%);
